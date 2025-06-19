@@ -1,0 +1,45 @@
+<?php
+ require_once '../view/fragment/FragmentSoutenanceMenu.php';
+ require_once '../view/fragment/FragmentSoutenanceJumbotron.php';
+ include '../view/fragment/FragmentSoutenanceHeader.html';
+ ?>
+<body>
+    <div class="container">
+        <?php
+            echo SoutenanceMenuResponsable($nom, $prenom);
+            if($validation === 2)
+            {
+                echo jumbotronTitreRed("Veuillez remplir tous les champs");
+                echo "<div class = \"mt-5\">";
+                include 'formAjoutProject.html';
+                echo "</div>";
+            }
+            elseif ($validation === 1)
+            {
+                echo jumbotronTitreSuccess("Félicitations <br> Votre projet a été ajouté avec succès"); 
+                echo "<div class='text-center mt-2 fw-bold'>";
+                echo "<ul class='list-group'>";
+                  echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nom du projet : $label </li>";
+                  echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Responsable : $nom $prenom</li>";
+                  echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nombre maximal d'étudiants : $nombre</li>";
+                echo "</ul>";
+                echo "</div>";
+            }
+            else
+            {
+                echo jumbotronTitreRed("Ce projet existe déjà");
+                echo "<div class = \"mt-5\">";
+                include 'formAjoutProject.html';
+                echo "</div>";
+            }
+            
+        ?>
+  
+    </div>
+    <?php 
+     include '../view/fragment/FragmentSoutenanceFooter.html';
+    ?>
+</body>
+</html>
+
+
