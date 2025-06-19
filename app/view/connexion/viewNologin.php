@@ -7,13 +7,9 @@
     <div class="container">
         <?php
            echo SoutenanceMenuAcceuil(); 
-           echo jumbotronAccueil();
            echo jumbotronTitreRed("Identifiants invalides")
         ?>
          <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 h-100 rounded" style="margin: auto">         
-            <div class="mb-4"> 
-                <h2 class="text-center text-italic fw-bold">Connexion à mon compte</h2>
-            </div>
             <div>
                 <input type="hidden" name="action" value="SoutenanceAccueilPersonne">
             </div>

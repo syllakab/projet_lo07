@@ -7,13 +7,9 @@
     <div class="container">
         <?php
            echo SoutenanceMenuAcceuil();
-           //echo jumbotronTitreInfo("Connexion à mon compte");
-           echo jumbotronAccueil();
+           echo jumbotronTitreInfo("Connexion à mon compte");
         ?>
-        <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 rounded" style="margin: auto">  
-            <div class="mb-4"> 
-                <h2 class="text-center text-italic fw-bold">Connexion à mon compte</h2>
-            </div>
+        <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 rounded" style="margin: auto">        
             <div>
                 <input type="hidden" name="action" value="SoutenanceAccueilPersonne">
             </div>

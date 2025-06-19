@@ -46,7 +46,8 @@ function jumbotronTitreInfo($titre)
 
 function jumbotronTitreRed($titre)
 {
-    $resultat = "<div class=\"text-white text-center bg-danger mt-5 mb-5 p-2 fw-bold w-50 rounded\" style=\"margin: auto\">";
+    $resultat = "<h1>XXXXX</h1> \n";
+    $resultat .= "<div class=\"text-white text-center bg-danger mt-5 mb-5 p-3 fw-bold w-50 rounded\" style=\"margin: auto\">";
     $resultat .= "<h1>$titre</h1>";
     $resultat .= "</div>";
     return $resultat;
