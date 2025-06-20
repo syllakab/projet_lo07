@@ -28,8 +28,7 @@
                         ?>
                     </select>
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-success fw-bold me-4">Envoyer</button>
-                        <button type="button" class="btn btn-primary fw-bold" onclick="history.back(-1)">Retour</button>
+                        <button type="submit" class="btn btn-success fw-bold me-4">Confirmer mon RDV</button>
                     </div>
                 </div>
             </form>

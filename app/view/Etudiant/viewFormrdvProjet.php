@@ -28,7 +28,7 @@
                         ?>                    
                     </select>
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-success fw-bold me-4">Envoyer</button>
+                        <button type="submit" class="btn btn-success fw-bold me-4">Voir les créneaux horaires disponibles</button>
                     </div>
                 </div>
             </form>

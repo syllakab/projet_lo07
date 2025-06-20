@@ -20,6 +20,16 @@ function jumbotronPersonne($nom,$prenom)
     return $resultat;
 }
 
+function jumbotronEtudiant($nom,$prenom)
+{
+    $resultat = "<h1>XXXXX</h1> \n";
+    $resultat .= "<div class=\"text-white text-center bg-success mt-5 mb-5 p-3 fw-bold w-50 rounded\" style=\"margin: auto\">";
+    $resultat .= "<h1>BIENVENU $nom $prenom</h1>";
+    $resultat .= "<p>Ici tu peux prendre des rdv pour ta soutenance et aussi voir les rdv que tu as déjà planifiés</p>";
+    $resultat .= "</div>";
+    return $resultat;
+}
+
 function jumbotronSuccessInscrire($nom,$prenom)
 {
     $resultat = "<h1>XXXXXX</h1>";

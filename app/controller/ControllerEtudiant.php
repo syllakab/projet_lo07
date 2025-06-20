@@ -40,9 +40,19 @@ class ControllerEtudiant
         {
             $_SESSION['label'] = $label;
             $resultats = ModelEtudiant::getCreneauDisponible($label);
-            include 'configuration.php';
-            $vue = $chemin . 'app/view/Etudiant/viewFormrdvCreneau.php';
-            require($vue);
+            if (!empty($resultats))
+            {
+                include 'configuration.php';
+                $vue = $chemin . 'app/view/Etudiant/viewFormrdvCreneau.php';
+                require($vue);
+            }
+            else
+            {
+                include 'configuration.php';
+                $vue = $chemin . 'app/view/Etudiant/viewNoCreneau.php';
+                require($vue);
+            }
+            
         }
         else
         {
@@ -65,10 +75,22 @@ class ControllerEtudiant
         
         if(!empty($creneau))
         {
-          $validation = ModelEtudiant::SetOneRDV($id,$creneau);
-          include 'configuration.php';
-          $vue = $chemin .'app/view/Etudiant/viewConfirmrdv.php';
-          require($vue);
+           $groupe = ModelEtudiant::getNombreEtudiantGroup($label);
+           $nbrefois = ModelEtudiant::getNombreOneCreneauTake($creneau);
+           if($nbrefois > $groupe)
+           {
+               include 'configuration.php';
+               $vue = $chemin .'app/view/Etudiant/viewMaxEtudiantGroup.php';
+               require($vue);
+           }
+           else
+           {
+               $validation = ModelEtudiant::SetOneRDV($id,$creneau);
+               include 'configuration.php';
+               $vue = $chemin .'app/view/Etudiant/viewConfirmrdv.php';
+               require($vue);
+           }
+    
         }
         else
         {
