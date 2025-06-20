@@ -26,11 +26,14 @@ class ControllerSoutenance
                 $prenom = $element->getPrenom();
                 $responsable = $element->getRole_responsable();
                 $examinateur = $element->getRole_examinateur();
+                $etudiant = $element->getRole_etudiant();
                 $existe = 1;
                 $_SESSION['id'] = $id;
                 $_SESSION['nom'] = $nom;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['responsable']= $responsable;
+                $_SESSION['examinateur']= $examinateur;
+                $_SESSION['etudiant']= $etudiant;
             }   
         }
         

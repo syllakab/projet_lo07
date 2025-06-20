@@ -6,8 +6,18 @@
 <body>
     <div class="container">
         <?php
-            echo SoutenanceMenuEtudiant($nom, $prenom); 
-            echo jumbotronTitreRed("Impossible de prendre ce rdv car le nombre d'étudiant dans ce groupe (Pour le créneau choisi) est atteint");   
+            $responsable = $_SESSION['responsable'];
+            $examinateur = $_SESSION['examinateur'];
+            $etudiant = $_SESSION['etudiant'];
+            if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
+            {
+               echo SoutenanceMenuBoss($nom, $prenom);
+            }
+            else
+            {
+                 echo SoutenanceMenuEtudiant($nom, $prenom);
+            } 
+            echo jumbotronTitreRed("Impossible de prendre ce rdv car le nombre d'étudiant dans ce groupe est atteint");   
         ?>
         <div class='text-center mt-5'>
         <button onclick= "history.back()" class="btn btn-success fw-bold text-white"> Essayer un autre créneau </button>

@@ -6,7 +6,17 @@
 <body>
     <div class="container">
         <?php
-            echo SoutenanceMenuEtudiant($nom, $prenom); 
+            $responsable = $_SESSION['responsable'];
+            $examinateur = $_SESSION['examinateur'];
+            $etudiant = $_SESSION['etudiant'];
+            if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
+            {
+               echo SoutenanceMenuBoss($nom, $prenom);
+            }
+            else
+            {
+                 echo SoutenanceMenuEtudiant($nom, $prenom);
+            } 
             echo jumbotronTitreRed("Désolé, il n'y a pas de créneaux horaires disponibles pour le moment");
         ?>    
         <div class='text-center mt-5'>

@@ -7,11 +7,17 @@
     <div class="container">
         <?php
             $responsable = $_SESSION['responsable'];
-            if($responsable ===1)
+            $examinateur = $_SESSION['examinateur'];
+            $etudiant = $_SESSION['etudiant'];
+            if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
             {
-                echo SoutenanceMenuResponsable($nom, $prenom);
+               echo SoutenanceMenuBoss($nom, $prenom);
             }
-            else
+            elseif($responsable === 1 && $examinateur === 1 && $etudiant === 0 )
+            {
+               echo SoutenanceMenuResponsable($nom, $prenom);
+            }
+            else 
             {
                 echo SoutenanceMenuExaminateur($nom, $prenom);
             }

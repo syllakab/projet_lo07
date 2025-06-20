@@ -6,7 +6,18 @@
 <body>
     <div class="container">
         <?php
-            echo SoutenanceMenuResponsable($nom, $prenom);
+            $responsable = $_SESSION['responsable'];
+            $examinateur = $_SESSION['examinateur'];
+            $etudiant = $_SESSION['etudiant'];
+            if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
+            {
+               echo SoutenanceMenuBoss($nom, $prenom);
+            }
+            else 
+            {
+                echo SoutenanceMenuResponsable($nom, $prenom);
+            }
+            
             if($validation === 2)
             {
                 echo jumbotronTitreRed("Veuillez remplir tous les champs");

@@ -6,7 +6,17 @@
 <body>
     <div class="container">
         <?php
-            echo SoutenanceMenuEtudiant($nom, $prenom);
+            $responsable = $_SESSION['responsable'];
+            $examinateur = $_SESSION['examinateur'];
+            $etudiant = $_SESSION['etudiant'];
+            if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
+            {
+               echo SoutenanceMenuBoss($nom, $prenom);
+            }
+            else
+            {
+                 echo SoutenanceMenuEtudiant($nom, $prenom);
+            }
             echo jumbotronTitreInfo("Prise de RDV pour un projet");
         ?>
  
@@ -17,7 +27,7 @@
                     <input type="hidden" name="action" value="EtudiantConfirmRDV">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label fw-bold"> Les créneaux horaires disponibles </label> <br>
+                    <label class="form-label fw-bold"> Les créneaux horaires disponibles pour : <?php echo $label  ?></label> <br>
                     <select class="form-select" name="date"> 
                         <option disabled selected hidden>Selectionnez un créneau</option>
                         <?php
