@@ -25,7 +25,7 @@
                 <tr class='table-secondary'>
                     <th>Nom du projet</th>
                     <th>Responsable </th>
-                    <th>Nombre maximal d'étudiants</th>
+                    <th>Nombre d'étudiants par groupe</th>
                 </tr>
                 <?php
                 foreach ($resultats as $element)

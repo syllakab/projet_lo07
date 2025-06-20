@@ -77,7 +77,7 @@ class ModelEtudiant
         
     }
     
-    public static function getAllprojet($id) // Tous les projets où il n'a pas de RDV
+    public static function getAllprojet($id) // Tous les projets où l'étudiant n'a pas de RDV
     {
         try
         {
@@ -99,7 +99,7 @@ class ModelEtudiant
         try
         {
            $database = Modele::getInstance();
-           $query = "select creneau_id as id, creneau , nom , prenom from infocreneaux where infocreneaux.label = :label and creneau not in (select creneau from infordv)";
+           $query = "select creneau_id as id, creneau , nom , prenom from infocreneaux where infocreneaux.label = :label";
            $statement = $database->prepare($query);
            $statement->execute(['label'=>$label]);
            $resultat = $statement->fetchAll(PDO::FETCH_CLASS,"ModelEtudiant");
@@ -143,6 +143,43 @@ class ModelEtudiant
            printf("%s--%s \n",$ex->getCode(),$ex->getMessage());     
        }
        
+    }
+    
+    public static function getNombreEtudiantGroup($label)
+    {
+        try
+        {
+           $database = Modele::getInstance();
+           $query = "select groupe from projet where label = :label";
+           $statement = $database->prepare($query);
+           $statement->execute(['label'=>$label]);
+           $resultat = $statement->fetch();
+           $groupe = $resultat['0'];
+           return $groupe;
+        }
+        catch (PDOException $ex) 
+        {
+           printf("%s--%s",$ex->getCode(),$ex->getMessage());
+        }
+        
+    }
+    
+    public static function getNombreOneCreneauTake($creneau)
+    {
+        try
+        {
+           $database = Modele::getInstance();
+           $query = "select count(*) from infordv where creneau = :creneau";
+           $statement = $database->prepare($query);
+           $statement->execute(['creneau'=>$creneau]);
+           $resultat = $statement->fetch();
+           $nbrefois = $resultat['0'];
+           return $nbrefois;
+        }
+        catch (PDOException $ex) 
+        {
+           printf("%s--%s",$ex->getCode(),$ex->getMessage());
+        }
     }
 
 }
