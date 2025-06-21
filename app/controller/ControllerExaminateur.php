@@ -23,6 +23,7 @@ class ControllerExaminateur
         $prenom = $_SESSION['prenom'];
         
         $resultats = ModelExaminateur::getAllcreneau($id);
+        $button_retour = 0;
         include 'configuration.php';
         $vue = $chemin .'app/view/Examinateur/viewCreneau.php';
         require($vue);
@@ -33,8 +34,7 @@ class ControllerExaminateur
         session_start();
         $id = $_SESSION['id'];
         $nom = $_SESSION['nom'];
-        $prenom = $_SESSION['prenom'];
-        
+        $prenom = $_SESSION['prenom'];  
         $resultats = ModelExaminateur::getAllprojetID($id);
         include 'configuration.php';
         $vue = $chemin .'app/view/Examinateur/viewFormCreneauProject.php';
@@ -60,8 +60,9 @@ class ControllerExaminateur
         else
         {
              $resultats = ModelExaminateur::getProjetCreneau($id, $label);
+             $button_retour = 1;
              include 'configuration.php';
-             $vue = $chemin .'app/view/Examinateur/viewCreneauProject.php';
+             $vue = $chemin .'app/view/Examinateur/viewCreneau.php';
              require($vue);  
         }
     }
@@ -94,10 +95,29 @@ class ControllerExaminateur
         if(!empty($label) && !empty($date) && !empty($time))
         {
             $creneau = $date .' ' . $time .':00';
-            $validation = ModelExaminateur::SetOneCreneau($id, $label, $creneau);
-            include 'configuration.php';
-            $vue = $chemin .'app/view/Examinateur/viewConfirmAjoutCreneau.php';
-            require($vue);
+            $resultats = ModelExaminateur::getProjetCreneau($id, $label);
+            foreach ($resultats as $element)
+            {
+                if( ($element->getLabel() === $label) && ($element->getCreneau() === $creneau))
+                {
+                   $existe = 1; 
+                }
+            }
+            
+            if($existe = 1)
+            {
+                $validation = 0;
+                include 'configuration.php';
+                $vue = $chemin .'app/view/Examinateur/viewConfirmAjoutCreneau.php';
+                require($vue);
+            }
+            else 
+            {
+                $validation = ModelExaminateur::SetOneCreneau($id, $label, $creneau);
+                include 'configuration.php';
+                $vue = $chemin .'app/view/Examinateur/viewConfirmAjoutCreneau.php';
+                require($vue);
+            }
         }
         else 
         {

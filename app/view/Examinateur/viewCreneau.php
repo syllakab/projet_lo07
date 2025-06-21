@@ -22,7 +22,7 @@
                 echo SoutenanceMenuExaminateur($nom, $prenom);
             }
             
-            echo jumbotronTitreInfo("La liste de mes creneaux horaires");
+            echo jumbotronTitreInfo("La liste des creneaux horaires");
         ?>
  
         <div class="mt-5 text-center text-success">
@@ -35,16 +35,24 @@
                 <?php
                 foreach ($resultats as $element)
                 {
-                    echo "<tr class='table-info'>";
-                    foreach ($element as $cle=>$valeur)
-                    {    
-                         printf("<td> %s </td>",$valeur);      
-                    }  
+                    echo "<tr class='table-info'>";        
+                    printf("<td> %s </td>",$element->getLabel());      
+                    printf("<td> %s </td>",$element->getCreneau());
                     echo "</tr>";
                 }
                 ?>
             </table>
-        </div>  
+        </div>
+        
+        <?php
+          if ($button_retour === 1)
+          {
+             printf(" <div class='text-center mt-5'> \n");
+             printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Voir pour un autre projet </button>\n");
+             printf("</div>");
+          }
+        ?>   
+        </div>
     </div>
     <?php 
      include '../view/fragment/FragmentSoutenanceFooter.html';

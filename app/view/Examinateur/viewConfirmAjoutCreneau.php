@@ -24,7 +24,7 @@
             
             if ($validation === 1)
             {
-                echo jumbotronTitreSuccess("Félicitations <br> Le créneaux a été ajouté avec succès"); 
+                echo jumbotronTitreSuccess("Félicitations <br> Le créneau a été ajouté avec succès"); 
                 echo "<div class='text-center mt-2 fw-bold'>";
                 echo "<ul class='list-group'>";
                   echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nom du projet : $label </li>";
@@ -34,7 +34,7 @@
             }
             else
             {
-                echo jumbotronTitreRed("Impossible d'ajouter ce créneau");
+                echo jumbotronTitreRed("Impossible d'ajouter ce creneau car il existe déjà");
             }
         ?>    
         <form method='GET' action="routerSoutenance.php" class='text-center mt-5'>

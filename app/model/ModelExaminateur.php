@@ -4,20 +4,29 @@ require_once 'Model.php';
 
 class ModelExaminateur
 {
-    private $id , $nom , $prenom , $label , $groupe;
+    private $id , $nom , $prenom , $label , $groupe , $creneau;
     
-    public function __construct($id=NULL, $nom=NULL, $prenom=NULL, $label=NULL, $taille=NULL) {
+    public function __construct($id=NULL, $nom=NULL, $prenom=NULL, $label=NULL, $groupe=NULL , $creneau=NULL) {
         if(!is_null($id))
         {
             $this->id = $id;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->label = $label;
-            $this->taille = $taille;
+            $this->groupe = $groupe;
+            $this->creneau = $creneau;
         }
     }
    
-    public function getId() {
+    public function getCreneau() {
+        return $this->creneau;
+    }
+
+    public function setCreneau($creneau) {
+        $this->creneau = $creneau;
+    }
+
+        public function getId() {
         return $this->id;
     }
 
@@ -82,7 +91,7 @@ class ModelExaminateur
             $query = "select label , creneau from infocreneaux where examinateur_id =:id";
             $statement = $database->prepare($query);
             $statement->execute(['id'=>$id]);
-            $resultat = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $statement->fetchAll(PDO::FETCH_CLASS,"ModelExaminateur");
             return $resultat;
         } 
         catch (PDOException $ex)
@@ -96,13 +105,13 @@ class ModelExaminateur
         try
         {
             $database = Modele::getInstance();
-            $query = "select creneau from infocreneaux where label=:label and examinateur_id =:id";
+            $query = "select label , creneau from infocreneaux where label=:label and examinateur_id =:id";
             $statement = $database->prepare($query);
             $statement->execute([
                 'id'=>$id,
                 'label'=>$label ]);
             
-            $resultat = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+            $resultat = $statement->fetchAll(PDO::FETCH_CLASS,"ModelExaminateur");
             return $resultat;
         } 
         catch (PDOException $ex)

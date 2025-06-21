@@ -7,9 +7,14 @@
     <div class="container">
         <?php
            echo SoutenanceMenuAcceuil(); 
-           echo jumbotronTitreRed("Identifiants invalides")
+           echo jumbotronTitreInfo("Connexion à mon compte");
         ?>
-         <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 h-100 rounded" style="margin: auto">         
+        
+        <div class="text-center text-white fw-bold w-50 bg-danger rounded" style="margin: auto">
+            <h4> Identifiants invalides</h4>
+        </div>
+        
+        <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 rounded" style="margin: auto">        
             <div>
                 <input type="hidden" name="action" value="SoutenanceAccueilPersonne">
             </div>
@@ -21,11 +26,10 @@
                 <label class="form-label fw-bold"> Password : </label> <br>
                 <input class="form-control" type="password" name="password" placeholder="Entrez votre mot de passe">
             </div>
-             <div class="text-center mt-3">
+            <div class="text-center mt-3">
                 <button type="submit" class="btn btn-success fw-bold me-4">Connexion</button>
                 <button type="reset" class="btn btn-danger text-white fw-bold">Effacer</button>
             </div>
-            
         </form>
     </div>
     <?php 

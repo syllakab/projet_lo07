@@ -18,14 +18,7 @@
                 echo SoutenanceMenuResponsable($nom, $prenom);
             }
             
-            if($validation === 2)
-            {
-                echo jumbotronTitreRed("Veuillez remplir tous les champs");
-                echo "<div class = \"mt-5\">";
-                include 'formAjoutProject.html';
-                echo "</div>";
-            }
-            elseif ($validation === 1)
+            if ($validation === 1)
             {
                 echo jumbotronTitreSuccess("Félicitations <br> Votre projet a été ajouté avec succès"); 
                 echo "<div class='text-center mt-2 fw-bold'>";
@@ -38,10 +31,10 @@
             }
             else
             {
-                echo jumbotronTitreRed("Ce projet existe déjà");
-                echo "<div class = \"mt-5\">";
-                include 'formAjoutProject.html';
-                echo "</div>";
+                echo jumbotronTitreRed("Impossible d'ajouter ce projet car il existe déjà");
+                printf(" <div class='text-center mt-5'> \n");
+                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Réessayer </button>\n");
+                printf("</div>");
             }
             
         ?>

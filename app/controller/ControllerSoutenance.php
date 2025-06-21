@@ -13,57 +13,64 @@ class ControllerSoutenance
     public static function SoutenanceAccueilPersonne()
     {
         $login = htmlspecialchars($_GET['login']);
-        $password = htmlspecialchars($_GET['password']); 
-        $resultats = ModelSoutenance::getAllPersonne();
-        $existe = 0;
-        session_start();
-        foreach ($resultats as $element)
+        $password = htmlspecialchars($_GET['password']);   
+        if(!empty($login) && !empty($password))
         {
-            if(($element->getLogin()=== $login) && ($element->getPassword()=== $password))
+            session_start();
+            $resultats = ModelSoutenance::getAllPersonne();
+            $existe = 0;
+            foreach ($resultats as $element)
             {
-                $id = $element->getID();
-                $nom = $element->getNom();
-                $prenom = $element->getPrenom();
-                $responsable = $element->getRole_responsable();
-                $examinateur = $element->getRole_examinateur();
-                $etudiant = $element->getRole_etudiant();
-                $existe = 1;
-                $_SESSION['id'] = $id;
-                $_SESSION['nom'] = $nom;
-                $_SESSION['prenom'] = $prenom;
-                $_SESSION['responsable']= $responsable;
-                $_SESSION['examinateur']= $examinateur;
-                $_SESSION['etudiant']= $etudiant;
-            }   
-        }
+                 if(($element->getLogin()=== $login) && ($element->getPassword()=== $password))
+                 {
+                     $id = $element->getID();
+                     $nom = $element->getNom();
+                     $prenom = $element->getPrenom();
+                     $responsable = $element->getRole_responsable();
+                     $examinateur = $element->getRole_examinateur();
+                     $etudiant = $element->getRole_etudiant();
+                     $existe = 1;
+                     $_SESSION['id'] = $id;
+                     $_SESSION['nom'] = $nom;
+                     $_SESSION['prenom'] = $prenom;
+                     $_SESSION['responsable']= $responsable;
+                     $_SESSION['examinateur']= $examinateur;
+                     $_SESSION['etudiant']= $etudiant;
+                 }   
+            }
         
-        if($existe === 1)
-        {
-            include 'configuration.php';
+            if($existe === 1)
+            {
+                include 'configuration.php';
                 $vue = $chemin . 'app/view/connexion/viewAccueilPersonne.php';
-            require($vue);
-            
+                require($vue);       
+            }
+            else
+            {
+                include 'configuration.php';
+                $vue = $chemin . 'app/view/connexion/viewNologin.php';
+                require($vue);
+            } 
         }
         else
         {
             include 'configuration.php';
-                $vue = $chemin . 'app/view/connexion/viewNologin.php';
-            require($vue);
-        }
-        
+            $vue = $chemin .'app/view/connexion/viewLogin.php';
+            require($vue);      
+        }    
     }
     
     public static function SoutenanceLogin()
     {
         include 'configuration.php';
-            $vue = $chemin .'app/view/connexion/viewLogin.php';
+        $vue = $chemin .'app/view/connexion/viewLogin.php';
         require($vue);
     }
     
     public static function SoutenanceInscrire()
     {
         include 'configuration.php';
-            $vue = $chemin .'app/view/connexion/viewInscrire.php';
+        $vue = $chemin .'app/view/connexion/viewInscrire.php';
         require($vue);
     }
     

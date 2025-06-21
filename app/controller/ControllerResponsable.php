@@ -54,36 +54,35 @@ class ControllerResponsable
         
         if(!empty($label) && !empty($nombre))
         { 
-           $validation = 1;
            foreach ($projects as $element)
            {
                if($element === $label)
                {
-                   $validation = 0;
+                   $existe = 1;
                }
            }
            
-           if($validation === 1)
+           
+           if($existe === 1)
            {
-               ModelResponsable::SetOneProjet($label,$id,$nombre);
-               include 'configuration.php';
-               $vue = $chemin .'app/view/Responsable/viewConfirmAjoutProject.php';
-               require($vue);
-           }
-           else
-           {                          
+               $validation = 0;
                include 'configuration.php';
                $vue = $chemin .'app/view/Responsable/viewConfirmAjoutProject.php';
                require($vue); 
            }
-           
+           else
+           {
+               $validation = ModelResponsable::SetOneProjet($label,$id,$nombre);
+               include 'configuration.php';
+               $vue = $chemin .'app/view/Responsable/viewConfirmAjoutProject.php';
+               require($vue);
+           }   
         }
         else
         {
-            $validation = 2;
             include 'configuration.php';
-            $vue = $chemin .'app/view/Responsable/viewConfirmAjoutProject.php';
-            require($vue);
+            $vue = $chemin .'app/view/Responsable/viewAjoutProject.php';
+            require($vue); 
         }   
     }
     

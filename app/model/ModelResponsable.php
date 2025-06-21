@@ -129,12 +129,13 @@ class ModelResponsable
                 "label" => $label,
                 "responsable" => $id,
                 "groupe" => $nombre]);
-            
+         $validation = 1;   
         } 
        catch (PDOException $ex)
        {
            printf("%s--%s \n",$ex->getCode(),$ex->getMessage());     
        }
+       return $validation;
     }
     
     public static function SetOneExaminateur($nom,$prenom,$responsable,$examinateur,$etudiant,$login,$password)
