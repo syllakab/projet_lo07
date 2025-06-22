@@ -8,23 +8,23 @@
         <?php
            echo SoutenanceMenuAcceuil(); 
            
-           if($validation === 0)
+           if($validation === 1)
+           {             
+               echo jumbotronSuccessInscrire($nom, $prenom);
+           }
+           elseif($validation === 2)
            {
                echo jumbotronTitreInfo("Inscription");
                echo"<div class=\"text-center text-white fw-bold w-50 bg-danger rounded\" style=\"margin: auto\">\n";
-               echo "<h4>Ce compte existe déjà</h4>\n";
+               echo "<h4>Veuillez remplir tous les champs</h4>\n";
                echo "</div>";
                include '../view/connexion/formInscrire.html';
-           }
-           elseif($validation === 1)
-           {             
-               echo jumbotronSuccessInscrire($nom, $prenom);
            }
            else
            {
                echo jumbotronTitreInfo("Inscription");
                echo"<div class=\"text-center text-white fw-bold w-50 bg-danger rounded\" style=\"margin: auto\">\n";
-               echo "<h4>Veuillez remplir tous les champs</h4>\n";
+               echo "<h4>Ce compte existe déjà</h4>\n";
                echo "</div>";
                include '../view/connexion/formInscrire.html';
            }

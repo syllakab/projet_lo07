@@ -164,14 +164,14 @@ class ModelEtudiant
         
     }
     
-    public static function getNombreOneCreneauTake($creneau)
+    public static function getNombreOneCreneauTake($creneau,$label)
     {
         try
         {
            $database = Modele::getInstance();
-           $query = "select count(*) from infordv where creneau = :creneau";
+           $query = "select count(*) from infordv where creneau = :creneau and projet_label = :label";
            $statement = $database->prepare($query);
-           $statement->execute(['creneau'=>$creneau]);
+           $statement->execute(['creneau'=>$creneau ,'label'=>$label]);
            $resultat = $statement->fetch();
            $nbrefois = $resultat['0'];
            return $nbrefois;

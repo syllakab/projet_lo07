@@ -24,28 +24,35 @@
             
             if ($validation === 1)
             {
-                echo jumbotronTitreSuccess("Félicitations <br> Le créneau a été ajouté avec succès"); 
+                echo jumbotronTitreSuccess("Félicitations <br> Les créneaux ont été ajoutés avec succès"); 
                 echo "<div class='text-center mt-2 fw-bold'>";
+                echo "<h4 class='list-group-item list-group-item-info list-group-item-action rounded'> Nom du projet : $label </h4>";
+                echo "<h4 class='list-group-item list-group-item-info list-group-item-action rounded'> Les créneaux consécutifs ajoutés : </h4>";
                 echo "<ul class='list-group'>";
-                  echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nom du projet : $label </li>";
-                  echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Date et heure : $creneau</li>";
+                  foreach ($creneaux_consecutifs as $creneau)
+                  {
+                     echo "<li class='list-group-item list-group-item-secondary list-group-item-action rounded'> $creneau</li>"; 
+                  }
                 echo "</ul>";
                 echo "</div>";
                 printf(" <div class='text-center mt-5'> \n");
-                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Ajouter un autre créneau </button>\n");
+                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Ajouter un autre ensemble de créneaux consécutifs </button>\n");
                 printf("</div>");
             }
             else
             {
-                echo jumbotronTitreRed("Impossible d'ajouter ce creneau car vous l'avez déjà proposé");
+               $existe = $_SESSION['creneau_existe']; 
+                echo jumbotronTitreRed("Impossible d'ajouter ces creneaux car -- $existe -- est déjà proposé");
                 printf(" <div class='text-center mt-5'> \n");
-                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Réessayez un autre créneau </button>\n");
+                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Réessayez un autre ensemble de créneaux consécutifs </button>\n");
                 printf("</div>");
             }
         ?>    
+       
     </div>
     <?php 
      include '../view/fragment/FragmentSoutenanceFooter.html';
     ?>
 </body>
 </html>
+

@@ -95,7 +95,7 @@
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurReadCreneau'>La liste de mes créneaux </a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormProjectCreneau'>La liste de mes créneaux pour un projet</a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneau'>Ajouter un créneau à un projet</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Ajouter des créneaux consécutifs </a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneauConsecutif'>Ajouter des créneaux consécutifs </a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -140,7 +140,7 @@
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurReadCreneau'>La liste de mes créneaux </a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormProjectCreneau'>La liste de mes créneaux pour un projet</a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneau'>Ajouter un créneau à un projet</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Ajouter des créneaux consécutifs </a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneauConsecutif'>Ajouter des créneaux consécutifs </a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -208,7 +208,7 @@
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurReadCreneau'>La liste de mes créneaux </a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormProjectCreneau'>La liste de mes créneaux pour un projet</a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneau'>Ajouter un créneau à un projet</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Ajouter des créneaux consécutifs </a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ExaminateurFormAjoutCreneauConsecutif'>Ajouter des créneaux consécutifs </a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         

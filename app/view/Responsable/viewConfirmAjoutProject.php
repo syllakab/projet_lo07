@@ -28,17 +28,18 @@
                   echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nombre maximal d'étudiants : $nombre</li>";
                 echo "</ul>";
                 echo "</div>";
+                printf(" <div class='text-center mt-5'> \n");
+                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Ajouter un autre projet </button>\n");
+                printf("</div>");
             }
             else
             {
                 echo jumbotronTitreRed("Impossible d'ajouter ce projet car il existe déjà");
                 printf(" <div class='text-center mt-5'> \n");
-                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Réessayer </button>\n");
+                printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Réessayez un autre label </button>\n");
                 printf("</div>");
-            }
-            
+            }     
         ?>
-  
     </div>
     <?php 
      include '../view/fragment/FragmentSoutenanceFooter.html';

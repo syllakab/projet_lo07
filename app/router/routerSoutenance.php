@@ -33,6 +33,8 @@ switch ($action)
     case "ExaminateurReadProjectCreneau":
     case "ExaminateurFormAjoutCreneau":
     case "ExaminateurConfirmAjoutCreneau":
+    case "ExaminateurFormAjoutCreneauConsecutif":
+    case "ExaminateurConfirmAjoutCreneauConsecutif":
         ControllerExaminateur::$action();
         break;
     case "EtudiantListRDV":

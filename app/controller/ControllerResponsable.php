@@ -48,12 +48,14 @@ class ControllerResponsable
         $nom = $_SESSION['nom'];
         $prenom = $_SESSION['prenom'];
         
-        $projects = ModelResponsable::getAllLabel();
         $label = htmlspecialchars($_GET['label']);
         $nombre = $_GET['nombre'];
         
         if(!empty($label) && !empty($nombre))
         { 
+           $label = mb_strtoupper($label, 'UTF-8');
+           $projects = ModelResponsable::getAllLabel();
+           $existe = 0;
            foreach ($projects as $element)
            {
                if($element === $label)

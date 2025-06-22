@@ -75,22 +75,42 @@ class ControllerEtudiant
         
         if(!empty($creneau))
         {
-           $groupe = ModelEtudiant::getNombreEtudiantGroup($label);
-           $nbrefois = ModelEtudiant::getNombreOneCreneauTake($creneau);
-           if($nbrefois > $groupe)
-           {
-               include 'configuration.php';
-               $vue = $chemin .'app/view/Etudiant/viewMaxEtudiantGroup.php';
-               require($vue);
-           }
-           else
-           {
-               $validation = ModelEtudiant::SetOneRDV($id,$creneau);
-               include 'configuration.php';
-               $vue = $chemin .'app/view/Etudiant/viewConfirmrdv.php';
-               require($vue);
-           }
-    
+            $Allcreneaux = ModelEtudiant::getAllRDV($id);
+            $existe = 0;
+            foreach ($Allcreneaux as $element)
+            {
+                if ($element->getCreneau() === $creneau) 
+                {
+                    $existe = 1;
+                }
+            }
+            if ($existe === 1) 
+            {
+                $validation = 0;
+                include 'configuration.php';
+                $vue = $chemin . 'app/view/Etudiant/viewConfirmrdv.php';
+                require($vue);
+            } 
+            else
+            {
+                $groupe = ModelEtudiant::getNombreEtudiantGroup($label);
+                $nbrefois = ModelEtudiant::getNombreOneCreneauTake($creneau, $label);
+                
+                if ($nbrefois >= $groupe)
+                {
+                    include 'configuration.php';
+                    $vue = $chemin . 'app/view/Etudiant/viewMaxEtudiantGroup.php';
+                    require($vue);
+                } 
+                else
+                {
+                    $validation = ModelEtudiant::SetOneRDV($id, $creneau);
+                    include 'configuration.php';
+                    $vue = $chemin . 'app/view/Etudiant/viewConfirmrdv.php';
+                    require($vue);
+                }
+            }
+
         }
         else
         {
