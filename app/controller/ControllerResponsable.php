@@ -166,4 +166,50 @@ class ControllerResponsable
         }
     }
     
+     public static function ResponsableAjoutExaminateur()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        
+        include 'configuration.php';
+        $vue = $chemin .'app/view/Responsable/viewFormAjoutExaminateur.php';
+        require($vue); 
+    }
+    
+    public static function ResponsableConfirmAjoutExaminateur()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom']; 
+        
+        $nom_examinateur = htmlspecialchars($_GET['nom']);
+        $prenom_examinateur = htmlspecialchars($_GET['prenom']);
+        
+        if(!empty($nom_examinateur) && !empty($prenom_examinateur))
+        {
+          $nom_examinateur = mb_strtoupper($nom_examinateur, 'UTF-8');
+          $prenom_examinateur = mb_strtolower($prenom_examinateur);
+          $responsable = 0;
+          $examinateur = 1;
+          $etudiant = 0;
+          $login = $prenom_examinateur;
+          $password = "secret";
+          
+          $validation = ModelResponsable::SetOneExam($nom_examinateur, $prenom_examinateur, $responsable, $examinateur, $etudiant, $login, $password);
+          include 'configuration.php';
+          $vue = $chemin .'app/view/Responsable/viewConfirmAjoutExaminateur.php';
+          require($vue); 
+        }
+        else 
+        {
+            include 'configuration.php';
+            $vue = $chemin .'app/view/Responsable/viewFormAjoutExaminateur.php';
+            require($vue); 
+        }
+        
+    }
+    
 }

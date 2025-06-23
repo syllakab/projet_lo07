@@ -224,4 +224,38 @@ class ModelResponsable
         }
     }
     
+     public static function SetOneExam($nom,$prenom,$responsable,$examinateur,$etudiant,$login,$password)
+    {
+        try
+        {
+            $database = Modele::getInstance();
+            $max_id = "select max(id) from personne";
+            $state = $database->prepare($max_id);
+            $state->execute();
+            $resultats = $state->fetch();
+            $id = $resultats['0'];
+            $id++;
+            
+            $query = "insert into personne values (:id,:nom,:prenom,:role_responsable,:role_examinateur,:role_etudiant,:login,:password)";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                        "id"=>$id,
+                        "nom"=>$nom,
+                        "prenom"=>$prenom,
+                        "role_responsable"=>$responsable,
+                        "role_examinateur"=>$examinateur,
+                        "role_etudiant"=>$etudiant,
+                        "login"=>$login,
+                        "password"=>$password
+                    ]);
+            $validation = 1;
+        } 
+        catch (PDOException $ex) 
+        {
+            printf("%s--%s\n",$ex->getCode(),$ex->getMessage());
+            $validation = 0;
+        }
+        return $validation;
+    }
+    
 }

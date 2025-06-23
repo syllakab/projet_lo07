@@ -29,6 +29,8 @@ switch ($action)
     case "ResponsablePlanningProjet":
     case "ResponsableFormProjetExaminateur":
     case "ResponsableProjetExaminateur":
+    case "ResponsableAjoutExaminateur":
+    case "ResponsableConfirmAjoutExaminateur":
         ControllerResponsable::$action();
         break;
     case "ExaminateurReadProject" :

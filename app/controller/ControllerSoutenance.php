@@ -103,6 +103,7 @@ class ControllerSoutenance
                     break;          
             }
             $nom = mb_strtoupper($nom, 'UTF-8');
+            $prenom = mb_strtolower($prenom);
             $validation = ModelSoutenance::SetOnePersonne($nom, $prenom,$responsable,$examinateur,$etudiant, $login, $password);
             include 'configuration.php';
             $vue = $chemin . '/app/view/connexion/viewConfirmInscrire.php';
