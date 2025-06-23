@@ -88,4 +88,42 @@ class ControllerResponsable
         }   
     }
     
+    public static function ResponsableFormPlanningProjet()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        
+        $resultats = ModelResponsable::getAllProject($id);
+        include 'configuration.php';
+        $vue = $chemin . 'app/view/Responsable/viewFormPlanningProjet.php';
+        require($vue);
+    }
+    
+    public static function ResponsablePlanningProjet()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        $label = htmlspecialchars($_GET['label'] ?? '');
+        
+        if(!empty($label))
+        {
+            $resultats = ModelResponsable::getPlanningProjet($label);
+            include 'configuration.php';
+            $vue = $chemin . 'app/view/Responsable/viewPlanningProjet.php';
+            require($vue);
+        }
+        else
+        {
+            $resultats = ModelResponsable::getAllProject($id);
+            include 'configuration.php';
+            $vue = $chemin . 'app/view/Responsable/viewFormPlanningProjet.php';
+            require($vue);
+        }
+        
+    }
+    
 }

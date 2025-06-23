@@ -3,9 +3,9 @@ require_once 'Model.php';
 
 class ModelResponsable 
 {
-    private $id, $nom , $prenom , $label , $groupe;
+    private $id, $nom , $prenom , $label , $groupe , $etudiants , $creneau ;
     
-    public function __construct($id=NULL,$nom=NULL, $prenom=NULL, $label=NULL, $groupe=NULL)
+    public function __construct($id=NULL,$nom=NULL, $prenom=NULL, $label=NULL, $groupe=NULL,$etudiants=NULL,$creneau=NULL)
     {
         if(!is_null($id))
         {
@@ -14,6 +14,8 @@ class ModelResponsable
             $this->prenom = $prenom;
             $this->label = $label;
             $this->groupe = $groupe;
+            $this->etudiants = $etudiants;
+            $this->creneau = $creneau;
         }
     }
 
@@ -57,6 +59,23 @@ class ModelResponsable
         $this->groupe = $groupe;
     }
 
+    public function getCreneau() {
+        return $this->creneau;
+    }
+
+    public function setCreneau($creneau){
+        $this->creneau = $creneau;
+    }
+    
+    public function getEtudiants() {
+        return $this->etudiants;
+    }
+
+    public function setEtudiants($etudiants){
+        $this->etudiants = $etudiants;
+    }
+
+        
       
     public static function getAllProject($id)
     {
@@ -168,5 +187,24 @@ class ModelResponsable
            printf("%s--%s \n",$ex->getCode(),$ex->getMessage());
         }
     }
-
+    
+    
+    public static function getPlanningProjet($label)
+    {
+       try
+        {
+            $database = Modele::getInstance();
+            $requete = "select projet_label as label,examinateur_nom as nom,examinateur_prenom as prenom,creneau, GROUP_CONCAT(etudiant_nom,etudiant_prenom SEPARATOR',') as etudiants from infordv where projet_label = :label group by projet_label , examinateur_nom , examinateur_prenom , creneau ";
+            $state = $database->prepare($requete);
+            $state->execute(['label'=>$label]);
+            $resultat = $state->fetchAll(PDO::FETCH_CLASS,"ModelResponsable");
+            return $resultat;
+        }
+        
+        catch (PDOException $ex)
+        {
+             printf("%s--%s \n",$ex->getCode(),$ex->getMessage());
+        } 
+    }
+    
 }

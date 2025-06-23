@@ -13,16 +13,12 @@
             {
                echo SoutenanceMenuBoss($nom, $prenom);
             }
-            elseif($responsable === 1 && $examinateur === 1 && $etudiant === 0 )
-            {
-               echo SoutenanceMenuResponsable($nom, $prenom);
-            }
             else 
             {
-                echo SoutenanceMenuExaminateur($nom, $prenom);
+                echo SoutenanceMenuResponsable($nom, $prenom);
             }
             
-            echo jumbotronTitreInfo("Mes creneaux pour un projet");
+            echo jumbotronTitreInfo("Le planning d'un projet");
         ?>
  
         <div class="mt-5 text-center">
@@ -43,7 +39,7 @@
                         ?>
                     </select>
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-success fw-bold me-4">Voir les créneaux horaires</button>
+                        <button type="submit" class="btn btn-success fw-bold me-4">Voir le planning</button>
                     </div>
                 </div>
             </form>
