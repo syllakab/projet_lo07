@@ -153,7 +153,7 @@
         $variable .= "<li><a class='dropdown-item' href='#'>La liste des examinateurs d'un projet</a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='#'>Ajout d'un examinateur</a></li> \n";     
         $variable .= "<hr>\n";
-        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ResponsableFormPlanningProjet'>Planning d'un projet</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ResponsableFormPlanning'>Planning d'un projet</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -217,7 +217,7 @@
         $variable .= "<li><a class='dropdown-item' href='#'>La liste des examinateurs d'un projet</a></li> \n";
         $variable .= "<li><a class='dropdown-item' href='#'>Ajout d'un examinateur</a></li> \n";     
         $variable .= "<hr>\n";
-        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ResponsableFormPlanningProjet'>Planning d'un projet</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=ResponsableFormPlanning'>Planning d'un projet</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";  
         $variable .= "<li class='nav-item dropdown'> \n";

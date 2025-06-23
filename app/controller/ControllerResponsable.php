@@ -12,7 +12,7 @@ class ControllerResponsable
         
         $resultats = ModelResponsable::getAllProject($id);
         include 'configuration.php';
-        $vue = $chemin .'app/view/Responsable/viewMyProject.php';
+        $vue = $chemin .'app/view/Responsable/viewAllProject.php';
         require($vue);   
     }
     
@@ -25,7 +25,7 @@ class ControllerResponsable
         
         $resultats = ModelResponsable::getAllExaminateur();
         include 'configuration.php';
-        $vue = $chemin .'app/view/Responsable/viewExaminateur.php';
+        $vue = $chemin .'app/view/Responsable/viewAllExaminateur.php';
         require($vue); 
     }
     
@@ -88,7 +88,7 @@ class ControllerResponsable
         }   
     }
     
-    public static function ResponsableFormPlanningProjet()
+    public static function ResponsableFormPlanning()
     {
         session_start();
         $id = $_SESSION['id'];
@@ -97,7 +97,7 @@ class ControllerResponsable
         
         $resultats = ModelResponsable::getAllProject($id);
         include 'configuration.php';
-        $vue = $chemin . 'app/view/Responsable/viewFormPlanningProjet.php';
+        $vue = $chemin . 'app/view/Responsable/viewFormListProjet.php';
         require($vue);
     }
     
@@ -108,7 +108,7 @@ class ControllerResponsable
         $nom = $_SESSION['nom'];
         $prenom = $_SESSION['prenom'];
         $label = htmlspecialchars($_GET['label'] ?? '');
-        
+             
         if(!empty($label))
         {
             $resultats = ModelResponsable::getPlanningProjet($label);
@@ -120,7 +120,7 @@ class ControllerResponsable
         {
             $resultats = ModelResponsable::getAllProject($id);
             include 'configuration.php';
-            $vue = $chemin . 'app/view/Responsable/viewFormPlanningProjet.php';
+            $vue = $chemin . 'app/view/Responsable/viewFormListProjet.php';
             require($vue);
         }
         
