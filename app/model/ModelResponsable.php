@@ -207,4 +207,21 @@ class ModelResponsable
         } 
     }
     
+    public static function getProjetExaminateur($label) 
+    {
+        try
+        {
+            $database = Modele::getInstance();
+            $query = "select distinct nom,prenom from infocreneaux where label = :label ";
+            $statement = $database->prepare($query);
+            $statement->execute(['label'=>$label]);
+            $resultat = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $resultat;
+        }
+        catch (PDOException $ex) 
+        {
+            printf("%s--%s \n",$ex->getCode(),$ex->getMessage());
+        }
+    }
+    
 }

@@ -39,7 +39,16 @@
                 }
                 ?>
             </table>
-        </div>  
+        </div>
+        
+        <?php
+          if ($button_retour === 1)
+          {
+             printf(" <div class='text-center mt-5'> \n");
+             printf("<button onclick= \"history.back()\" class=\"btn btn-success fw-bold text-white\"> Voir pour un autre projet </button>\n");
+             printf("</div>");
+          }
+        ?>
     </div>
     <?php 
      include '../view/fragment/FragmentSoutenanceFooter.html';

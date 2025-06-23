@@ -22,6 +22,7 @@ class ControllerResponsable
         $id = $_SESSION['id'];
         $nom = $_SESSION['nom'];
         $prenom = $_SESSION['prenom'];
+        $button_retour = 0;
         
         $resultats = ModelResponsable::getAllExaminateur();
         include 'configuration.php';
@@ -124,6 +125,45 @@ class ControllerResponsable
             require($vue);
         }
         
+    }
+    
+    public static function ResponsableFormProjetExaminateur()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        
+        $resultats = ModelResponsable::getAllProject($id);
+        include 'configuration.php';
+        $vue = $chemin . 'app/view/Responsable/viewFormProjetExaminateur.php';
+        require($vue);
+    }
+    
+    public static function ResponsableProjetExaminateur()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $nom = $_SESSION['nom'];
+        $prenom = $_SESSION['prenom'];
+        $label = $_GET['label'] ?? '';
+        
+        
+        if(!empty($label))
+        {
+            $button_retour = 1;
+            $resultats = ModelResponsable::getProjetExaminateur($label);
+            include 'configuration.php';
+            $vue = $chemin . 'app/view/Responsable/viewAllExaminateur.php';
+            require($vue);
+        }
+        else 
+        {
+            $resultats = ModelResponsable::getAllProject($id);
+            include 'configuration.php';
+            $vue = $chemin . 'app/view/Responsable/viewFormProjetExaminateur.php';
+            require($vue);
+        }
     }
     
 }

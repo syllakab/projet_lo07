@@ -13,23 +13,19 @@
             {
                echo SoutenanceMenuBoss($nom, $prenom);
             }
-            elseif($responsable === 1 && $examinateur === 1 && $etudiant === 0 )
-            {
-               echo SoutenanceMenuResponsable($nom, $prenom);
-            }
             else 
             {
-                echo SoutenanceMenuExaminateur($nom, $prenom);
+                echo SoutenanceMenuResponsable($nom, $prenom);
             }
             
-            echo jumbotronTitreInfo("Mes creneaux pour un projet");
+            echo jumbotronTitreInfo("La liste des examinateurs d'un projet");
         ?>
  
         <div class="mt-5 text-center">
             
             <form method="GET" action="routerSoutenance.php" class="border bg-light p-4 w-50 rounded" style="margin: auto">         
                 <div>
-                    <input type="hidden" name="action" value="ExaminateurReadProjectCreneau">
+                    <input type="hidden" name="action" value="ResponsableProjetExaminateur">
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-bold"> Mes projets </label> <br>
@@ -43,7 +39,7 @@
                         ?>
                     </select>
                     <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-success fw-bold me-4">Voir les créneaux horaires</button>
+                        <button type="submit" class="btn btn-success fw-bold me-4">Voir les examinateurs</button>
                     </div>
                 </div>
             </form>
