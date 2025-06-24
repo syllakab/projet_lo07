@@ -19,6 +19,8 @@ switch ($action)
     case "SoutenanceAccueilPersonne":
     case "SoutenanceConfirmInscrire":
     case "SoutenanceDeconnextion" :
+    case "SoutenancePropositionOnData":
+    case "SoutenancePropositionOnMVC":
         ControllerSoutenance::$action();
         break;
     case "ResponsableReadProject":

@@ -14,8 +14,8 @@
         $variable .= "<li class='nav-item dropdown'> \n";
         $variable .= "<a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'>Innovations</a>";
         $variable .= "<ul class='dropdown-menu'> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une fonctionnalité originale</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une amélioration du code MVC</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnData'>Proposez une fonctionnalité originale</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnMVC'>Proposez une amélioration du code MVC</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -56,8 +56,8 @@
         $variable .= "<li class='nav-item dropdown'> \n";
         $variable .= "<a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'>Innovations</a>";
         $variable .= "<ul class='dropdown-menu'> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une fonctionnalité originale</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une amélioration du code MVC</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnData'>Proposez une fonctionnalité originale</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnMVC'>Proposez une amélioration du code MVC</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -101,8 +101,8 @@
         $variable .= "<li class='nav-item dropdown'> \n";
         $variable .= "<a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'>Innovations</a>";
         $variable .= "<ul class='dropdown-menu'> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une fonctionnalité originale</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une amélioration du code MVC</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnData'>Proposez une fonctionnalité originale</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnMVC'>Proposez une amélioration du code MVC</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -159,8 +159,8 @@
         $variable .= "<li class='nav-item dropdown'> \n";
         $variable .= "<a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'>Innovations</a>";
         $variable .= "<ul class='dropdown-menu'> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une fonctionnalité originale</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une amélioration du code MVC</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnData'>Proposez une fonctionnalité originale</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnMVC'>Proposez une amélioration du code MVC</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";
@@ -223,8 +223,8 @@
         $variable .= "<li class='nav-item dropdown'> \n";
         $variable .= "<a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown'>Innovations</a>";
         $variable .= "<ul class='dropdown-menu'> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une fonctionnalité originale</a></li> \n";
-        $variable .= "<li><a class='dropdown-item' href='#'>Proposez une amélioration du code MVC</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnData'>Proposez une fonctionnalité originale</a></li> \n";
+        $variable .= "<li><a class='dropdown-item' href='routerSoutenance.php?action=SoutenancePropositionOnMVC'>Proposez une amélioration du code MVC</a></li> \n";
         $variable .= "</ul> \n";
         $variable .= "</li> \n";
         $variable .= "<li class='nav-item dropdown'> \n";

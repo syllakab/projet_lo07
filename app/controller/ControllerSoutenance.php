@@ -118,6 +118,55 @@ class ControllerSoutenance
         }
     }
     
+    public static function SoutenancePropositionOnData()
+    {
+        session_start();
+        if(!empty($_SESSION))
+        {
+           $nom = $_SESSION['nom'];
+           $prenom = $_SESSION['prenom'];
+           $id = $_SESSION['id'];
+           
+           $menu = 1;
+           include 'configuration.php';
+           $vue = $chemin .'app/view/connexion/viewPropositionOnData.php';
+           require($vue); 
+        }
+        else
+        {
+            $menu = 0;
+            include 'configuration.php';
+            $vue = $chemin .'app/view/connexion/viewPropositionOnData.php';
+            require($vue);
+        }
+        
+    }
+    
+    public static function SoutenancePropositionOnMVC()
+    {
+        session_start();
+        if(!empty($_SESSION))
+        {
+           $nom = $_SESSION['nom'];
+           $prenom = $_SESSION['prenom'];
+           $id = $_SESSION['id'];
+           
+           $menu = 1;
+           include 'configuration.php';
+           $vue = $chemin .'app/view/connexion/viewPropositionOnMVC.php';
+           require($vue); 
+        }
+        else
+        {
+            $menu = 0;
+            include 'configuration.php';
+            $vue = $chemin .'app/view/connexion/viewPropositionOnMVC.php';
+            require($vue);
+        }
+        
+    }
+
+
     public static function SoutenanceDeconnexion() 
     {
         session_start();
@@ -125,6 +174,7 @@ class ControllerSoutenance
         header('Location: app/router/routerSoutenance.php?action=acceuil');
         exit();
     }
+    
 }
 
 ?>
