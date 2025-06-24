@@ -9,7 +9,6 @@
            echo SoutenanceMenuAcceuil();
            echo jumbotronAccueil();
         ?>
-
     </div>
     <?php 
      include '../view/fragment/FragmentSoutenanceFooter.html';

@@ -25,7 +25,7 @@
                 echo "<ul class='list-group'>";
                 echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Nom de l'examinateur : $nom_examinateur </li>";
                 echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Prenom de l'examinateur : $prenom_examinateur</li>";
-                echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> login : $login </li>";
+                echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> login : xxxxxxxxxxx</li>";
                 echo "<li class='list-group-item list-group-item-info list-group-item-action rounded'> Password : xxxxxxxxxxx</li>";
                 echo "</ul>";
                 echo "</div>";
