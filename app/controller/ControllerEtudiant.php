@@ -104,7 +104,7 @@ class ControllerEtudiant
                 } 
                 else
                 {
-                    $validation = ModelEtudiant::SetOneRDV($id, $creneau);
+                    $validation = ModelEtudiant::SetOneRDV($id, $creneau,$label);
                     include 'configuration.php';
                     $vue = $chemin . 'app/view/Etudiant/viewConfirmrdv.php';
                     require($vue);

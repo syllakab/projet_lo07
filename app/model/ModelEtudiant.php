@@ -111,7 +111,7 @@ class ModelEtudiant
         }
     }
     
-    public static function SetOneRDV($id,$creneau)
+    public static function SetOneRDV($id,$creneau,$label)
     {
         try
        {
@@ -123,9 +123,9 @@ class ModelEtudiant
             $max_id = $resultat1['0'];
             $max_id++;
             
-            $requete2 = "select id from creneau where creneau = :creneau";
+            $requete2 = "select creneau_id from infocreneaux where creneau = :creneau and label = :label";
             $state2 = $database->prepare($requete2);
-            $state2->execute(['creneau'=>$creneau]);
+            $state2->execute(['creneau'=>$creneau,'label'=>$label]);
             $resultat2 = $state2->fetch();
             $id_creneau = $resultat2['0'];
 
