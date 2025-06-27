@@ -38,7 +38,7 @@
                                     Mais il est mieux d’améliorer la structure de la table en utilisant un champ auto-increment.
                                     Ainsi, l’ID est créé automatiquement par la base de données, ce qui évite les erreurs si plusieurs personnes insèrent en même temps.<br>
                                     Cela rend le code plus simple, les requêtes plus rapides, et allège le travail de la base de données");
-            echo jumbotronTitreAmelioration("TABLE PERSONNE","Avec la structure actuelle d'insertion dans la table, il n'est pas possible d’enregistrer deux personnes ayant le même nom, 
+            echo jumbotronTitreAmelioration("TABLE PERSONNE - IDENTIFIANT","Avec la structure actuelle d'insertion dans la table, il n'est pas possible d’enregistrer deux personnes ayant le même nom, 
                                         ce qui est pourtant un cas tout à fait possible.<br> On utilise actuellement le nom en minuscules comme identifiant,
                                        ce qui impose une unicité stricte du nom pour chaque utilisateur.<br> Cela pose problème, notamment au cas où le responsable souhaite ajouter plusieurs examinateurs portant
                                        le même nom : l'ajout devient alors impossible. <br> <br>
@@ -55,7 +55,20 @@
                                        NB : Utiliser un mot de passe unique pour tous les utilisateurs compromet la sécurité et empêche d’identifier les actions individuellement.
                                        Il faut générer un mot de passe personnel par utilisateur et imposer sa modification à la première connexion.");
             
+            echo jumbotronTitreAmelioration("UNICITÉ - TABLE RDV","Dans la table RDV, l’ajout d’une contrainte d’unicité sur le couple (creneau, etudiant) permettrait de simplifier
+                                            considérablement la gestion des exceptions. En effet, la base de données signalerait automatiquement qu’un étudiant a déjà réservé un créneau donné,
+                                            sans qu’il soit nécessaire d’implémenter manuellement cette vérification côté application.
+                                            Cette approche présente plusieurs avantages : elle réduit la quantité de code à écrire,
+                                            évite de devoir récupérer la liste des créneaux réservés par l’étudiant pour effectuer une comparaison, 
+                                            et limite ainsi les sollicitations de la base de données. 
+                                            Elle renforce également l’intégrité des données en empêchant les doublons à la source.");
             
+            
+            echo jumbotronTitreAmelioration("UNICITÉ - TABLE CRENEAU","De la même manière, on pourrait appliquer une contrainte d’unicité dans la table Creneau sur le couple
+                                                (examinateur, creneau). Cela empêcherait un examinateur d’être affecté à plusieurs créneaux identiques,
+                                            garantissant ainsi la cohérence des plannings sans avoir à faire des contrôles manuels.
+                                            Ces contraintes au niveau de la base de données permettent non seulement de réduire la logique métier dans le code, mais aussi de prévenir 
+                                            efficacement les doublons ou incohérences dès l’insertion des données.");
             
             echo jumbotronTitreAmelioration("DES FONCTIONNALITÉS QU'ON PEUT Y AJOUTER","<br>1. ANNULER UN RDV POUR UN ÉTUDIANT<br> Permettre à un étudiant d’annuler un rendez-vous de soutenance qu’il a déjà réservé.<br>
                                              Avec la table RDV, il serait beaucoup plus simple d’implémenter la fonctionnalité d’annulation d’un rendez-vous.
