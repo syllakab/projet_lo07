@@ -59,7 +59,7 @@ class ModelEtudiant
     }
     
     
-    public static function getAllRDV($id)
+    public static function getAllRDV($id) // permet de recuperer la liste de tous les RDV depuis la vue infordv
     {
       try
         {
@@ -77,7 +77,7 @@ class ModelEtudiant
         
     }
     
-    public static function getAllprojet($id) // Tous les projets où l'étudiant n'a pas de RDV
+    public static function getAllprojet($id) // Permet de recuperer tous les projets où l'étudiant n'a pas de RDV
     {
         try
         {

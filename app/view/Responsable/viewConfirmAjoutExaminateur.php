@@ -11,7 +11,7 @@
             $etudiant = $_SESSION['etudiant'];
             if($responsable === 1 && $examinateur === 1 && $etudiant === 1)
             {
-               echo SoutenanceMenuBoss($nom, $prenom);
+              echo SoutenanceMenuBoss($nom, $prenom);
             }
             else 
             {

@@ -157,37 +157,6 @@ class ModelResponsable
        return $validation;
     }
     
-    public static function SetOneExaminateur($nom,$prenom,$responsable,$examinateur,$etudiant,$login,$password)
-    {
-        try
-        {
-            $database = Modele::getInstance();
-            $requete = "select max(id) from personne";
-            $state = $database->prepare($requete);
-            $state->execute();
-            $resultat = $state->fetch();
-            $id = $resultat['0'];
-            $id++;
-            
-            $query = "insert into personne values(:id,:nom,:prenom,:role_responsable,:role_examinateur,:role_etudiant,:login,:password)";
-            $statement = $database->prepare($query);
-            $statement->execute([
-                "id"=>$id,
-                "nom"=>$nom,
-                "prenom"=>$prenom,
-                "role_responsable"=>$responsable,
-                "role_examinateur"=>$examinateur,
-                "role_etudiant"=>$etudiant,
-                "login"=>$login,
-                "password"=>$password
-            ]);
-        } 
-        catch (PDOException $ex)
-        {
-           printf("%s--%s \n",$ex->getCode(),$ex->getMessage());
-        }
-    }
-    
     
     public static function getPlanningProjet($label)
     {
@@ -252,7 +221,7 @@ class ModelResponsable
         } 
         catch (PDOException $ex) 
         {
-            printf("%s--%s\n",$ex->getCode(),$ex->getMessage());
+            //printf("%s--%s\n",$ex->getCode(),$ex->getMessage());
             $validation = 0;
         }
         return $validation;

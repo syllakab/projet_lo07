@@ -1,4 +1,5 @@
 <?php
+// C'est le model qui est dédié à la connexion et à l'inscription
 require_once 'Model.php';
 class ModelSoutenance
 {
@@ -82,8 +83,10 @@ class ModelSoutenance
         $this->password = $password;
     }
 
-        
-    public static function getAllPersonne()
+     
+    /* Ici nous récuperons tous les utilisateurs avec toutes les informations possibles pour faciliter
+      l'authentification lors de la connexion à la connexion*/
+    public static function getAllPersonne() 
     {
         try
         {
@@ -100,7 +103,7 @@ class ModelSoutenance
         }
     }
     
-    
+    /* Nous allons insérer dans la table personne les informations d'un nouvel utilisateur passées en paramètre */
     public static function SetOnePersonne($nom,$prenom,$responsable,$examinateur,$etudiant,$login,$password)
     {
         try

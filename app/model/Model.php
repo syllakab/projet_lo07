@@ -1,5 +1,6 @@
-<?php
 
+<?php
+// la classe modele permet ici de définir une instance
 class Modele extends PDO {
 
     private static $_instance;

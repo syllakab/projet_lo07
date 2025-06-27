@@ -195,7 +195,7 @@ class ControllerResponsable
           $responsable = 0;
           $examinateur = 1;
           $etudiant = 0;
-          $login = $prenom_examinateur;
+          $login = mb_strtolower($nom_examinateur);
           $password = "secret";
           
           $validation = ModelResponsable::SetOneExam($nom_examinateur, $prenom_examinateur, $responsable, $examinateur, $etudiant, $login, $password);
