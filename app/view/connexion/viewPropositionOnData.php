@@ -70,6 +70,10 @@
                                             Ces contraintes au niveau de la base de données permettent non seulement de réduire la logique métier dans le code, mais aussi de prévenir 
                                             efficacement les doublons ou incohérences dès l’insertion des données.");
             
+            echo jumbotronTitreAmelioration("UNICITÉ - TABLE PROJET","Dans la table projet, ajouter une contrainte d’unicité sur le champ label permettrait de savoir automatiquement 
+                                            si un projet avec ce nom existe déjà.Cela évite de devoir récupérer tous les labels existants et de faire la vérification dans le code.
+                                            Résultat : moins de code, moins de requêtes vers la base, et une gestion des erreurs plus simple");
+            
             echo jumbotronTitreAmelioration("DES FONCTIONNALITÉS QU'ON PEUT Y AJOUTER","<br>1. ANNULER UN RDV POUR UN ÉTUDIANT<br> Permettre à un étudiant d’annuler un rendez-vous de soutenance qu’il a déjà réservé.<br>
                                              Avec la table RDV, il serait beaucoup plus simple d’implémenter la fonctionnalité d’annulation d’un rendez-vous.
                                              Il suffirait en effet de supprimer l’enregistrement correspondant dans cette table, sans avoir à créer de nouveaux éléments ni à utiliser
